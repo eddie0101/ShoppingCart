@@ -43,6 +43,6 @@ public class Item {
     }
 
     public String toString() {
-        return "Name: " + this.name + "\nPrice: " + this.price + "\n";
+        return this.name + ": " + this.price;
     }
 }
