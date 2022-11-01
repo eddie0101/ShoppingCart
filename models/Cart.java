@@ -48,4 +48,12 @@ public class Cart {
             "\tTax: $" + tax + "\n" +
             "\tTotal: $" + total + "\n";
         }
+
+        public String toString() {
+            String temp = "";
+            for (int i = 0; i < items.size(); i++) {
+                temp += items.get(i) + "\n";
+            }
+            return temp;
+        }
 }
