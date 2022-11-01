@@ -18,7 +18,7 @@ public class Cart {
     }
 
     public boolean add(Item item) {
-        if (items.contains(item)) {
+        if (!items.contains(item)) {
             items.add(new Item(item));
             return true;
         } else {
@@ -37,7 +37,7 @@ public class Cart {
     public String checkOut() {
         double subtotal = 0;
         double tax = 13;
-
+        
         for (int i = 0; i < items.size(); i++) {
             subtotal += items.get(i).getPrice();
         }
