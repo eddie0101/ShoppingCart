@@ -27,17 +27,24 @@ public class Cart {
     }
 
     public void remove(String name) {
+        if (items.isEmpty() == true) {
+            throw new IllegalStateException("cannot remove items from an empty cart");
+        }
         for (int i = 0; i < items.size(); i++) {
-            if (items.get(i).getName().equalsIgnoreCase(name)) {
+            if (items.get(i).getName().equals(name)) {
                 items.remove(i);
             }
         }
     }
 
     public String checkOut() {
+        if (items.isEmpty() == true) {
+            throw new IllegalStateException("cannot perform a checkout on an empty cart");
+        }
+
         double subtotal = 0;
         double tax = 13;
-        
+
         for (int i = 0; i < items.size(); i++) {
             subtotal += items.get(i).getPrice();
         }
