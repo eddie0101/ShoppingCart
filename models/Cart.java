@@ -17,6 +17,15 @@ public class Cart {
         items.set(index, new Item(item));
     }
 
+    public boolean findItem(Item item) {
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getName().equals(item.getName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean add(Item item) {
         if (!items.contains(item)) {
             items.add(new Item(item));
