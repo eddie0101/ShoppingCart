@@ -43,13 +43,35 @@ public class Main {
             System.out.println(store);
             System.out.println("Options: \n\ta) Add to cart\n\tb) Remove from cart \n\tc) Checkout");
             String option = scan.nextLine();
+            
+            
             if (option.equals("a")) {
-                System.out.print("\nChoose an aisle number between: 1 – 7: ");
-                int rowNumber = scan.nextInt() - 1;
-                scan.nextLine();
-                System.out.print("Choose an item number between: 1 – 3: ");
-                int itemNumber = scan.nextInt() - 1;
-                scan.nextLine();
+                System.out.print("\nChoose an aisle number between: 1 - 7: ");
+                int rowNumber;
+                if (scan.hasNextInt()) {
+                    rowNumber = scan.nextInt() - 1;
+                    scan.nextLine();
+                    if (rowNumber < 0 || rowNumber > 6) {
+                        System.out.println("INVALID INPUT RANGE");
+                        continue;
+                    }
+                } else {
+                    System.out.println("INVALID INPUT");
+                    continue;
+                }
+                System.out.print("Choose an item number between: 1 - 3: ");
+                int itemNumber;
+                if (scan.hasNextInt()) {
+                    itemNumber = scan.nextInt() - 1;
+                    scan.nextLine();
+                    if (itemNumber < 0 || itemNumber > 2) {
+                        System.out.println("INVALID INPUT RANGE");
+                        continue;
+                    }
+                } else {
+                    System.out.println("INVALID INPUT");
+                    continue;
+                }
                 Item item = store.getItem(rowNumber, itemNumber);
                 if (!cart.findItem(item)) {
                     cart.add(item);
@@ -57,14 +79,33 @@ public class Main {
                 } else {
                     System.out.println(item.getName() + " is already in your shopping cart.");
                 }
-            } else if(option.equals("b")) {
-                System.out.print("Enter the item you'd like to remove: ");
-                String itemName = scan.nextLine();
-                cart.remove(itemName);
-            } else if (option.equals("c")) {
-                System.out.println(cart.checkOut());
-                scan.close();
-                break;
+            } 
+
+            
+            else if(option.equals("b")) {
+                if (!cart.isEmpty()) {
+                    System.out.print("Enter the item you'd like to remove: ");
+                    String itemName = scan.nextLine();
+                    cart.remove(itemName);
+                }
+                else {
+                    System.out.println("The cart is empty.");
+                    continue;
+                }
+            }
+            
+            
+            else if (option.equals("c")) {
+                if (!cart.isEmpty()) {
+                    System.out.println(cart.checkOut());
+                    scan.close();
+                    break;
+                } 
+                else {
+                    System.out.println("The cart is empty.");
+                    continue;
+                }
+
             }
             System.out.println("\n\nSHOPPING CART\n\n" + cart);
             System.out.print("Enter anything to continue: ");
