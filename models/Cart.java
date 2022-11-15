@@ -26,6 +26,10 @@ public class Cart {
         return false;
     }
 
+    public boolean isEmpty() {
+        return items.isEmpty();
+    }
+
     public boolean add(Item item) {
         if (!items.contains(item)) {
             items.add(new Item(item));
@@ -52,12 +56,14 @@ public class Cart {
         }
 
         double subtotal = 0;
-        double tax = 13;
+        double taxPercent = 13;
+        double tax;
 
         for (int i = 0; i < items.size(); i++) {
             subtotal += items.get(i).getPrice();
         }
-        double total = subtotal + subtotal * tax / 100;
+        tax = subtotal * taxPercent / 100;
+        double total = subtotal + tax;
         return
             "\tRECEIPT\n\n" +
             "\tSubtotal: $" + subtotal + "\n" +
