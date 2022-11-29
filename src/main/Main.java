@@ -3,7 +3,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import models.*;
+import src.main.models.Cart;
+import src.main.models.Item;
+import src.main.models.Store;
+
+
 
 public class Main {
     static Store store;
