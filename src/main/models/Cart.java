@@ -55,6 +55,10 @@ public class Cart {
         return items.stream().mapToDouble(element -> element.getPrice()).sum();
     }
 
+    public double getTax(double subtotal) {
+        return subtotal * 13 / 100;
+    }
+
     public String checkOut() {
         if (items.isEmpty() == true) {
             throw new IllegalStateException("cannot perform a checkout on an empty cart");
