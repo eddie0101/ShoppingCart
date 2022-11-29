@@ -58,6 +58,10 @@ public class Cart {
     public double getTax(double subtotal) {
         return subtotal * 13 / 100;
     }
+    
+    public double getTotal(double subtotal, double tax) {
+        return subtotal + tax;
+    }
 
     public String checkOut() {
         if (items.isEmpty() == true) {
