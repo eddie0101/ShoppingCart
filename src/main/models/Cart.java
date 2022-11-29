@@ -65,14 +65,9 @@ public class Cart {
         }
 
         double subtotal = getSubtotal();
-        double taxPercent = 13;
-        double tax;
-
-        // for (int i = 0; i < items.size(); i++) {
-        //     subtotal += items.get(i).getPrice();
-        // }
-        tax = subtotal * taxPercent / 100;
+        double tax = getTax(subtotal);
         double total = subtotal + tax;
+        
         return
             "\tRECEIPT\n\n" +
             "\tSubtotal: $" + subtotal + "\n" +
@@ -80,15 +75,15 @@ public class Cart {
             "\tTotal: $" + total + "\n";
     }
 
-        public String toString() {
-            String temp = "";
-            for (int i = 0; i < items.size(); i++) {
-                temp += items.get(i) + "\n";
-            }
-            return temp;
+    public String toString() {
+        String temp = "";
+        for (int i = 0; i < items.size(); i++) {
+            temp += items.get(i) + "\n";
         }
+        return temp;
+    }
 
-        public boolean contains(Item item) {
-            return items.contains(item);
-        }
+    public boolean contains(Item item) {
+        return items.contains(item);
+    }
 }
