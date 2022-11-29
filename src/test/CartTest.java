@@ -28,4 +28,10 @@ public class CartTest {
     public void skipsDuplicate() {
         assertFalse(cart.add(new Item("Pepsi", 1.89)));
     }
+
+    @Test
+    public void removedItemTest() {
+        cart.remove("Pepsi");
+        assertFalse(cart.contains(new Item("Pepsi", 1.89)));
+    }
 }
