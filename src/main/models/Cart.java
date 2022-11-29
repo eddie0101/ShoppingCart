@@ -64,15 +64,11 @@ public class Cart {
             throw new IllegalStateException("cannot perform a checkout on an empty cart");
         }
 
-        double subtotal = getSubtotal();
-        double tax = getTax(subtotal);
-        double total = subtotal + tax;
-        
         return
             "\tRECEIPT\n\n" +
-            "\tSubtotal: $" + subtotal + "\n" +
-            "\tTax: $" + tax + "\n" +
-            "\tTotal: $" + total + "\n";
+            "\tSubtotal: $" + getSubtotal() + "\n" +
+            "\tTax: $" + getTax(getSubtotal()) + "\n" +
+            "\tTotal: $" + getTotal(getSubtotal(), getTax(getSubtotal())) + "\n";
     }
 
     public String toString() {
