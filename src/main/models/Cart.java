@@ -50,6 +50,9 @@ public class Cart {
         // }
         items.removeIf(element -> element.getName().equals(name));
     }
+
+    public double getSubtotal() {
+        return items.stream().mapToDouble(element -> element.getPrice()).sum();
     }
 
     public String checkOut() {
