@@ -43,11 +43,13 @@ public class Cart {
         if (items.isEmpty() == true) {
             throw new IllegalStateException("cannot remove items from an empty cart");
         }
-        for (int i = 0; i < items.size(); i++) {
-            if (items.get(i).getName().equals(name)) {
-                items.remove(i);
-            }
-        }
+        // for (int i = 0; i < items.size(); i++) {
+        //     if (items.get(i).getName().equals(name)) {
+        //         items.remove(i);
+        //     }
+        // }
+        items.removeIf(element -> element.getName().equals(name));
+    }
     }
 
     public String checkOut() {
