@@ -60,13 +60,13 @@ public class Cart {
             throw new IllegalStateException("cannot perform a checkout on an empty cart");
         }
 
-        double subtotal = 0;
+        double subtotal = getSubtotal();
         double taxPercent = 13;
         double tax;
 
-        for (int i = 0; i < items.size(); i++) {
-            subtotal += items.get(i).getPrice();
-        }
+        // for (int i = 0; i < items.size(); i++) {
+        //     subtotal += items.get(i).getPrice();
+        // }
         tax = subtotal * taxPercent / 100;
         double total = subtotal + tax;
         return
@@ -74,7 +74,7 @@ public class Cart {
             "\tSubtotal: $" + subtotal + "\n" +
             "\tTax: $" + tax + "\n" +
             "\tTotal: $" + total + "\n";
-        }
+    }
 
         public String toString() {
             String temp = "";
