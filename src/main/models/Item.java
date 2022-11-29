@@ -1,4 +1,4 @@
-package models;
+package src.main.models;
 
 public class Item {
     private String name;
