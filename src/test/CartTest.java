@@ -45,4 +45,9 @@ public class CartTest {
     public void taxIsValid() {
         assertEquals(cart.getSubtotal() * 13 / 100, cart.getTax(cart.getSubtotal()));
     }
+
+    @Test
+    public void totalIsValid() {
+        assertEquals(0.5044, cart.getTotal(cart.getSubtotal(), cart.getTax(cart.getSubtotal())));
+    }
 }
