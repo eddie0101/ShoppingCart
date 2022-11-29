@@ -1,5 +1,6 @@
 package src.test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.Before;
@@ -21,5 +22,10 @@ public class CartTest {
     @Test
     public void itemAddedTest() {
         assertTrue(cart.contains(new Item("Fanta", 1.99)));
+    }
+
+    @Test
+    public void skipsDuplicate() {
+        assertFalse(cart.add(new Item("Pepsi", 1.89)));
     }
 }
