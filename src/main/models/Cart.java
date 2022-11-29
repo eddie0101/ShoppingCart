@@ -78,4 +78,8 @@ public class Cart {
             }
             return temp;
         }
+
+        public boolean contains(Item item) {
+            return items.contains(item);
+        }
 }
