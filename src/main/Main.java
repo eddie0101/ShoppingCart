@@ -17,7 +17,7 @@ public class Main {
         store = new Store();
         cart = new Cart();
         try {
-            loadItems("products.txt");
+            loadItems("src/main/products.txt");
         } catch(FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
